@@ -12,7 +12,7 @@ const registerUser = async ({ name, email, password }) => {
   }
 
   
-  const hashedPassword = hashPassword(password);
+  const hashedPassword = await hashPassword(password);
 
  
   const user = await User.create({
@@ -22,9 +22,13 @@ const registerUser = async ({ name, email, password }) => {
   });
 
   
-  const createdUser = await User.findById(user._id).select("-password");
+   return {
+    _id: user._id,
+    name: user.name,
+    email: user.email,
+    createdAt: user.createdAt,
+  };
 
-  return createdUser;
 };
 
 export { registerUser };
