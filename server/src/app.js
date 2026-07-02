@@ -1,4 +1,5 @@
 import express from "express";
+import errorHandler from "./middleware/error.middleware.js";
 
 const app = express();
 
@@ -12,5 +13,5 @@ app.get("/", (req, res) => {
     message: "Task Tracker API is running..."
   });
 });
-
+app.use(errorHandler);
 export default app;
