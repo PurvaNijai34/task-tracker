@@ -25,21 +25,19 @@ export const register = asyncHandler(async (req, res) => {
 export const login = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
 
-  // Business Logic
   const user = await loginUser({
     email,
     password,
   });
 
-  // Generate JWT
+  
   const token = generateToken({
     userId: user._id,
   });
 
-  // Store JWT in HttpOnly Cookie
+
   res.cookie("token", token, cookieOptions);
 
-  // Send Response
   return res.status(200).json(
     new ApiResponse(
       200,
@@ -49,6 +47,16 @@ export const login = asyncHandler(async (req, res) => {
         name: user.name,
         email: user.email,
       }
+    )
+  );
+});
+
+export const getCurrentUser = asyncHandler(async (req, res) => {
+  return res.status(200).json(
+    new ApiResponse(
+      200,
+      "Current user fetched successfully",
+      req.user
     )
   );
 });
