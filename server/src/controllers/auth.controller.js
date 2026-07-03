@@ -2,8 +2,8 @@ import asyncHandler from "../utils/asyncHandler.js";
 import ApiResponse from "../utils/ApiResponse.js";
 import generateToken from "../utils/generateToken.js";
 import cookieOptions from "../utils/cookieOptions.js";
-import { loginUser } from "../services/auth.service.js";
-import { registerUser } from "../services/auth.service.js";
+import { loginUser,registerUser } from "../services/auth.service.js";
+
 
 
 export const registerController = asyncHandler(async (req, res) => {
@@ -62,16 +62,11 @@ export const logoutController = asyncHandler(async (req, res) => {
 });
 
 export const getCurrentUserController = asyncHandler(async (req, res) => {
-  res.clearCookie("token", {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite:
-      process.env.NODE_ENV === "production"
-        ? "none"
-        : "lax",
-  });
-
   return res.status(200).json(
-    new ApiResponse(200, "Logout successful")
+    new ApiResponse(
+      200,
+      "Current user fetched successfully",
+      req.user
+    )
   );
 });
