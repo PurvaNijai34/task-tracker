@@ -6,7 +6,7 @@ import { loginUser } from "../services/auth.service.js";
 import { registerUser } from "../services/auth.service.js";
 
 
-export const register = asyncHandler(async (req, res) => {
+export const registerController = asyncHandler(async (req, res) => {
   const { name, email, password } = req.body;
   const user = await registerUser({
     name,
@@ -22,7 +22,7 @@ export const register = asyncHandler(async (req, res) => {
   );
 });
 
-export const login = asyncHandler(async (req, res) => {
+export const loginController = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
 
   const user = await loginUser({
@@ -51,7 +51,7 @@ export const login = asyncHandler(async (req, res) => {
   );
 });
 
-export const getCurrentUser = asyncHandler(async (req, res) => {
+export const logoutController = asyncHandler(async (req, res) => {
   return res.status(200).json(
     new ApiResponse(
       200,
@@ -61,7 +61,7 @@ export const getCurrentUser = asyncHandler(async (req, res) => {
   );
 });
 
-export const logout = asyncHandler(async (req, res) => {
+export const getCurrentUserController = asyncHandler(async (req, res) => {
   res.clearCookie("token", {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",

@@ -5,19 +5,19 @@ import {
   loginValidator,
 } from "../validators/auth.validator.js";
 import {
-  register,
-  login,
-  getCurrentUser,
-  logout,
+registerController,
+loginController,
+logoutController,
+getCurrentUserController
 } from "../controllers/auth.controller.js";
 
 import validate from "../middleware/validation.middleware.js";
 import protect from "../middleware/auth.middleware.js";
 const router = express.Router();
 
-router.post("/register", registerValidator, validate, register);
-router.post("/login", loginValidator, validate, login);
-router.get("/me", protect, getCurrentUser);
-router.post("/logout", protect, logout);
+router.post("/register", registerValidator, validate, registerController);
+router.post("/login", loginValidator, validate, loginController);
+router.get("/me", protect, getCurrentUserController);
+router.post("/logout", protect, logoutController);
 
 export default router;

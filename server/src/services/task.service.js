@@ -1,5 +1,6 @@
 import Task from "../models/Task.js";
 import ApiError from "../utils/ApiError.js";
+import isValidObjectId from "../utils/isValidObjectId.js";
 
 export const createTask = async ({
   title,
@@ -26,6 +27,9 @@ export const getAllTasks = async (userId) => {
 };
 
 export const getTaskById = async (taskId, userId) => {
+    if (!isValidObjectId(taskId)) {
+  throw new ApiError(400, "Invalid Task ID");
+}
   const task = await Task.findOne({
     _id: taskId,
     user: userId,
@@ -39,6 +43,9 @@ export const getTaskById = async (taskId, userId) => {
 };
 
 export const updateTask = async (taskId, userId, updateData) => {
+    if (!isValidObjectId(taskId)) {
+  throw new ApiError(400, "Invalid Task ID");
+}
   const task = await Task.findOneAndUpdate(
     {
       _id: taskId,
@@ -59,6 +66,9 @@ export const updateTask = async (taskId, userId, updateData) => {
 };
 
 export const deleteTask = async (taskId, userId) => {
+    if (!isValidObjectId(taskId)) {
+  throw new ApiError(400, "Invalid Task ID");
+}
   const task = await Task.findOneAndDelete({
     _id: taskId,
     user: userId,

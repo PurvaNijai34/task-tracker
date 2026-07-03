@@ -1,11 +1,11 @@
 import express from "express";
 
 import {
-  create,
-  getAll,
-  getOne,
-  update,
-  remove,
+  createTaskController,
+getAllTasksController,
+getTaskController,
+updateTaskController,
+deleteTaskController
 } from "../controllers/task.controller.js";
 
 import {
@@ -22,18 +22,18 @@ const router = express.Router();
 router.use(protect);
 
 
-router.post("/", createTaskValidator, validate, create);
+router.post("/", createTaskValidator, validate, createTaskController);
 
 
-router.get("/", getAll);
+router.get("/", getAllTasksController);
 
 
-router.get("/:id", getOne);
+router.get("/:id", getTaskController);
 
 
-router.put("/:id", updateTaskValidator, validate, update);
+router.put("/:id", updateTaskValidator, validate, updateTaskController);
 
 
-router.delete("/:id", remove);
+router.delete("/:id", deleteTaskController);
 
 export default router;
