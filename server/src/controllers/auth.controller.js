@@ -4,8 +4,6 @@ import generateToken from "../utils/generateToken.js";
 import cookieOptions from "../utils/cookieOptions.js";
 import { loginUser,registerUser } from "../services/auth.service.js";
 
-
-
 export const registerController = asyncHandler(async (req, res) => {
   const { name, email, password } = req.body;
   const user = await registerUser({
