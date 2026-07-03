@@ -3,7 +3,7 @@ import User from "../models/User.js";
 import ApiError from "../utils/ApiError.js";
 import { hashPassword } from "../utils/password.util.js";
 
-const registerUser = async ({ name, email, password }) => {
+export const registerUser = async ({ name, email, password }) => {
 
   const existingUser = await User.findOne({ email });
 
@@ -26,4 +26,24 @@ const registerUser = async ({ name, email, password }) => {
 
 };
 
-export { registerUser };
+
+export const loginUser = async ({ email, password }) => {
+  
+  const user = await User.findOne({ email }).select("+password");
+
+  if (!user) {
+    throw new ApiError(401, "Invalid email or password");
+  }
+
+ 
+  const isPasswordMatched = await hashPassword(
+    password,
+    user.password
+  );
+
+  if (!isPasswordMatched) {
+    throw new ApiError(401, "Invalid email or password");
+  }
+
+  return user;
+};
