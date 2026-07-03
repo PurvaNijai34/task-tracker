@@ -22,12 +22,7 @@ const registerUser = async ({ name, email, password }) => {
   });
 
   
-   return {
-    _id: user._id,
-    name: user.name,
-    email: user.email,
-    createdAt: user.createdAt,
-  };
+   return user;
 
 };
 
