@@ -316,6 +316,26 @@ Authorized User
 ---
 
 
+# 🖥 Application Screens
+
+## 🏠 Landing Page
+
+![Landing Page](assests/screenshots/landingPage.png)
+
+---
+
+## 🔐 Login
+
+![Login](assests/screenshots/loginPage.png)
+
+
+---
+
+## 📊 Dashboard
+
+![Dashboard](assests/screenshots/dashboardPage.png)
+
+
 # 🌟 Future Improvements
 
 - Task Priority
