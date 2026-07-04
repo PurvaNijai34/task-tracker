@@ -4,6 +4,13 @@ A modern, secure, and responsive **MERN Stack Task Tracker** application built u
 
 The application enables users to securely manage daily tasks with **JWT Cookie Authentication**, complete **CRUD operations**, **search**, **filter**, **sorting**, **dark/light theme**, and a fully responsive user interface.
 
+# 🌐 Live Demo
+
+| Service | URL |
+|---------|-----|
+| Frontend | https://task-tracker-a6z22ip6u-nijaipurva123-2427s-projects.vercel.app |
+| Backend API | https://task-tracker-vd2e.onrender.com |
+
 ---
 
 # 📑 Table of Contents
