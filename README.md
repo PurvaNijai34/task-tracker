@@ -1,4 +1,18 @@
-`# 🚀 Task Tracker
+<p align="center">
+  <img src="assests/favicon.png" width="70" alt="Task Tracker Logo"/>
+</p>
+
+<h1 align="center">Task Tracker</h1>
+
+<p align="center">
+Modern MERN Stack Task Management Application
+</p>
+
+<p align="center">
+Secure • Responsive • JWT Authentication • CRUD • Dark Mode
+</p>
+
+---
 
 A modern, secure, and responsive **MERN Stack Task Tracker** application built using **MongoDB, Express.js, React.js, and Node.js**.
 
